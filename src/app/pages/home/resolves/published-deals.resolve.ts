@@ -11,7 +11,7 @@ export class PublishedDealsResolve implements Resolve<DealResult[]> {
       private dealsClient: DealsClient
   ) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<DealResult[]> {
-    return this.dealsClient.listPublished(undefined, undefined);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<DealResult[]> {
+    return this.dealsClient.listPublished(undefined, undefined).toPromise();
   }
 }

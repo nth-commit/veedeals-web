@@ -1,3 +1,5 @@
-<p>
-  home works!
-</p>
+<div class="home-component">
+  <app-deal-card-list
+    [deals]="deals$ | async"
+    [dealHrefResolver]="dealHrefResolver"></app-deal-card-list>
+</div>

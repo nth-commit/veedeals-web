@@ -1,0 +1,7 @@
+<div class="deal-card-list">
+  <div *ngFor="let deal of deals" class="deal">
+    <a [href]="dealHrefResolver.resolve(deal)">
+      {{ deal.id }}
+    </a>
+  </div>
+</div>
