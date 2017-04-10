@@ -6,6 +6,8 @@ import { CoreModule } from '../core/core.module';
 import { DealCardListComponent } from './components/deal-card-list/deal-card-list.component';
 import { DealCardComponent } from './components/deal-card/deal-card.component';
 
+import { DealResolve } from './resolves/deal.resolve';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +15,9 @@ import { DealCardComponent } from './components/deal-card/deal-card.component';
     CoreModule
   ],
   declarations: [DealCardListComponent, DealCardComponent],
-  exports: [DealCardListComponent]
+  exports: [DealCardListComponent],
+  providers: [
+    DealResolve
+  ]
 })
 export class DealsModule { }

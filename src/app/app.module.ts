@@ -7,6 +7,7 @@ import { CoreModule } from './features/core/core.module';
 import { DealsModule } from './features/deals/deals.module';
 
 import { HomeModule } from './pages/home/home.module';
+import { DealModule } from './pages/deal/deal.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +25,8 @@ import { AppComponent } from './app.component';
     CoreModule,
     DealsModule,
 
-    HomeModule
+    HomeModule,
+    DealModule
   ],
   providers: [],
   bootstrap: [AppComponent]

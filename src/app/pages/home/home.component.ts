@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.deals$ = this.route.data.flatMap(data => data['publishedDeals']);
 
     this.dealHrefResolver = {
-      resolve: (deal: DealResult) => `/deals/${deal.id}`
+      resolve: (deal: DealResult) => `london/deals/${deal.id}`
     }
   }
 }
