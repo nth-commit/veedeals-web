@@ -8,11 +8,13 @@
     }
 
     .deal-name {
+        @include overflow-ellipses();
         margin-bottom: 3px;
     }
 
     .deal-merchant {
-        color: rgba(255, 255, 255, .87);
+        @include overflow-ellipses();
+        color: darken(#fff, 20%);
     }
 
     .deal-price {
@@ -21,11 +23,14 @@
 
         .deal-original-price {
             text-decoration: line-through;
+            color: darken(#fff, 20%);
         }
 
         .deal-new-price {
             color: #7b1fa2;
-            font-size: 1.5em;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 3px;
         }
     }
 }

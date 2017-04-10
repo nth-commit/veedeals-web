@@ -11,7 +11,7 @@
       </div>
       <div class="deal-price">
         <div class="deal-original-price" *ngIf="deal.originalPrice">{{ deal.originalPrice | currency:'GBP':true:'1.2-2' }}</div>
-        <div class="deal-new-price">{{ deal.price }}</div>
+        <div class="deal-new-price">{{ deal.price | currency:'GBP':true:'1.2-2' }}</div>
       </div>
     </md-card-content>
   </md-card>
