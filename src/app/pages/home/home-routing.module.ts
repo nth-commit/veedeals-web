@@ -7,7 +7,7 @@ import { PublishedDealsResolve } from './resolves/published-deals.resolve';
 
 const routes: Routes = [
   {
-      path: '',
+      path: ':area',
       component: HomeComponent,
       resolve: {
         publishedDeals: PublishedDealsResolve

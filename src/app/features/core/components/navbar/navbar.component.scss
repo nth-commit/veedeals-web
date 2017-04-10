@@ -1,7 +1,7 @@
 @import "../../../../../assets/mixins";
 
 .navbar {
-    $font-color: rgba(255, 255, 255, .87);
+    $font-color: darken(#fff, 5%);;
 
     md-toolbar {
         a {
@@ -9,7 +9,21 @@
             text-decoration: initial;
 
             &.title {
+                @include transition(color 0.2s ease);
                 font-weight: bold;
+
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+
+        button.location-select {
+            margin-left: 30px;
+
+            &:not(:hover) {
+                background: rgba(0, 0, 0, 0);
             }
         }
     }
