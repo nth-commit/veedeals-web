@@ -1,0 +1,16 @@
+@import "../../../../../assets/mixins";
+
+.navbar {
+    $font-color: rgba(255, 255, 255, .87);
+
+    md-toolbar {
+        a {
+            color: $font-color;
+            text-decoration: initial;
+
+            &.title {
+                font-weight: bold;
+            }
+        }
+    }
+}

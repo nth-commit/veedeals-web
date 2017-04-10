@@ -1,0 +1,19 @@
+@import "../assets/mixins";
+
+main {
+    .navbar-container {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .content-container {
+        margin-top: 30px;
+
+        .content {
+            margin: auto;
+            display: block;
+            max-width: 1200px;
+        }
+    }
+}

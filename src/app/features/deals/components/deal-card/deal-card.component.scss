@@ -1,0 +1,31 @@
+@import "../../../../../assets/mixins";
+
+.deal-card {
+
+    .deal-image {
+        @include background-image-centered();
+        height: 250px;
+    }
+
+    .deal-name {
+        margin-bottom: 3px;
+    }
+
+    .deal-merchant {
+        color: rgba(255, 255, 255, .87);
+    }
+
+    .deal-price {
+        margin-top: 10px;
+        text-align: right;
+
+        .deal-original-price {
+            text-decoration: line-through;
+        }
+
+        .deal-new-price {
+            color: #7b1fa2;
+            font-size: 1.5em;
+        }
+    }
+}

@@ -11,7 +11,6 @@ export interface DealHrefResolver {
   styleUrls: ['./deal-card-list.component.scss']
 })
 export class DealCardListComponent implements OnInit {
-
   @Input() deals: DealResult[];
   @Input() dealHrefResolver: DealHrefResolver;
 

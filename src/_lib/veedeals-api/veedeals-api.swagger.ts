@@ -279,12 +279,16 @@ export class DealsClient {
         this.baseUrl = baseUrl ? baseUrl : "http://localhost:5000";
     }
 
-    index(isPublished: boolean, merchantId: string): Observable<DealResult[]> {
+    index(isPublished: boolean, merchantId: string, includeMerchant: boolean): Observable<DealResult[]> {
         let url_ = this.baseUrl + "/deals?";
         if (isPublished !== undefined)
             url_ += "isPublished=" + encodeURIComponent("" + isPublished) + "&"; 
         if (merchantId !== undefined)
             url_ += "merchantId=" + encodeURIComponent("" + merchantId) + "&"; 
+        if (includeMerchant === null)
+            throw new Error("The parameter 'includeMerchant' cannot be null.");
+        else if (includeMerchant !== undefined)
+            url_ += "includeMerchant=" + encodeURIComponent("" + includeMerchant) + "&"; 
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = "";
@@ -510,12 +514,16 @@ export class DealsClient {
         return Observable.of(null);
     }
 
-    listPublished(isPublished: boolean, merchantId: string): Observable<DealResult[]> {
+    listPublished(isPublished: boolean, merchantId: string, includeMerchant: boolean): Observable<DealResult[]> {
         let url_ = this.baseUrl + "/deals/published?";
         if (isPublished !== undefined)
             url_ += "isPublished=" + encodeURIComponent("" + isPublished) + "&"; 
         if (merchantId !== undefined)
             url_ += "merchantId=" + encodeURIComponent("" + merchantId) + "&"; 
+        if (includeMerchant === null)
+            throw new Error("The parameter 'includeMerchant' cannot be null.");
+        else if (includeMerchant !== undefined)
+            url_ += "includeMerchant=" + encodeURIComponent("" + includeMerchant) + "&"; 
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = "";
@@ -1267,6 +1275,12 @@ export interface DealResult {
     validFrom: Date;
     validTo: Date;
     merchantId: string;
+    merchant?: MerchantResult | undefined;
+}
+
+export interface MerchantResult {
+    id: string;
+    name?: string | undefined;
 }
 
 export interface DealCreate {
@@ -1288,11 +1302,6 @@ export interface DealUpdate {
     maximumPurchases?: number | undefined;
     validFrom: Date;
     validTo: Date;
-}
-
-export interface MerchantResult {
-    id: string;
-    name?: string | undefined;
 }
 
 export interface MerchantCreate {
