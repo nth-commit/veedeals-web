@@ -1,0 +1,31 @@
+@import "../../../../../assets/mixins";
+
+.deal-view {
+    .deal-image-container {
+        margin-bottom: 15px;
+
+        .deal-image {
+            @include background-image-centered();
+            background-image: url('http://placehold.it/1000x1000');
+            min-height: 500px;
+        }
+    }
+
+    .deal-details-container {
+        @include flex-display();
+        @include flex-direction(column);
+        margin-bottom: 15px;
+
+        .deal-description {
+            @include flex(1);
+        }
+
+        .deal-actions {
+            padding-top: 15px;
+
+            button {
+                float: right;
+            }
+        }
+    }
+}

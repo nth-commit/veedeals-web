@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { DealResult } from '../../../_lib/veedeals-api';
 
-import { DealHrefResolver } from '../../features/deals/components/deal-card-list/deal-card-list.component';
+import { DealRouteResolver } from '../../features/deals/components/deal-card-list/deal-card-list.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   private deals$: Observable<DealResult[]>;
 
-  private dealHrefResolver: DealHrefResolver;
+  private dealRouteResolver: DealRouteResolver;
 
   constructor(
     private router: Router,
@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.deals$ = this.route.data.flatMap(data => data['publishedDeals']);
 
-    this.dealHrefResolver = {
-      resolve: (deal: DealResult) => `london/deals/${deal.id}`
+    this.dealRouteResolver = {
+      resolve: (deal: DealResult) => `/london/deals/${deal.id}`
     }
   }
 }

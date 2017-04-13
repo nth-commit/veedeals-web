@@ -1,5 +1,6 @@
-@import "./mixins/_background";
-@import "./mixins/_text";
+@import "./mixins/background";
+@import "./mixins/text";
+@import "./mixins/flexbox";
 
 @mixin transition($args...) {
   -webkit-transition: $args;

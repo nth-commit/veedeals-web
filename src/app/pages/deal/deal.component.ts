@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { DealResult } from '../../../_lib/veedeals-api';
 
 @Component({
   selector: 'app-deal',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DealComponent implements OnInit {
 
-  constructor() { }
+  private deal$: Observable<DealResult>;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.deal$ = this.route.data.flatMap(data => data['deal']);
+  }
+
+  purchase() {
+    alert('test')
   }
 
 }

@@ -4,3 +4,8 @@
 body {
     margin: 0;
 }
+
+[class*=col-] {
+    padding-left: 15px;
+    padding-right: 15px;
+}

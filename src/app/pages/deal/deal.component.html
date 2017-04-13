@@ -1,3 +1,4 @@
-<p>
-  deal works!
-</p>
+<div class="deal-page">
+  <h1>{{ (deal$ | async).name }}</h1>
+  <app-deal-view [deal]="deal | async" (onPurchaseClick)="purchase()"></app-deal-view>
+</div>

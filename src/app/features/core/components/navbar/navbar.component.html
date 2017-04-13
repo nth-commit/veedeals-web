@@ -1,6 +1,6 @@
 <div class="navbar">
   <md-toolbar color="primary">
-    <a class="title" href="#">Veedeals BETA</a>
+    <a class="title" [routerLink]="'/'">Veedeals BETA</a>
     <button md-button [mdMenuTriggerFor]="menu" class="location-select">{{ selectedLocation$ | async }}</button>
   </md-toolbar>
   <md-menu #menu="mdMenu" positionY="below">

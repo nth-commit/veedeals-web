@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DealResult } from '../../../../../_lib/veedeals-api';
 
-export interface DealHrefResolver {
+export interface DealRouteResolver {
   resolve(deal: DealResult): string;
 }
 
@@ -12,7 +12,7 @@ export interface DealHrefResolver {
 })
 export class DealCardListComponent implements OnInit {
   @Input() deals: DealResult[];
-  @Input() dealHrefResolver: DealHrefResolver;
+  @Input() dealRouteResolver: DealRouteResolver;
 
   constructor() { }
 
