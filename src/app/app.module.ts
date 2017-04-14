@@ -9,6 +9,7 @@ import { DealsModule } from './features/deals/deals.module';
 import { HomeModule } from './pages/home/home.module';
 import { DealModule } from './pages/deal/deal.module';
 
+import { AppStateModule } from './state/app-state.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -20,6 +21,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    
+    AppStateModule,
     AppRoutingModule,
     
     CoreModule,

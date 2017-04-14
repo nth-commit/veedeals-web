@@ -7,8 +7,8 @@ import { DealResult } from '../../../../../_lib/veedeals-api';
   styleUrls: ['./deal-view.component.scss']
 })
 export class DealViewComponent implements OnInit {
-  @Input() deal: DealResult;
   @Output() onPurchaseClick = new EventEmitter<void>();
+  @Input() deal: DealResult;
 
   constructor() { }
 
