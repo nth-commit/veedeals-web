@@ -1,6 +1,6 @@
 <main>
   <div class="navbar-container">
-    <app-navbar></app-navbar>
+    <app-navbar [authState]="auth$ | async" (onLoginClick)="login()"></app-navbar>
   </div>
   <div class="content-container">
     <div class="frow-container">

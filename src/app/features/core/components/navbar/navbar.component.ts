@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { AuthState } from '../../../../abstractions/state/auth.state';
 import { LocationService } from '../../services/location.service';
 
 @Component({
@@ -9,6 +10,9 @@ import { LocationService } from '../../services/location.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  @Output() onLoginClick = new EventEmitter();
+  @Input() authState: AuthState;
+
   locations$: Observable<string[]>;
   selectedLocation$: Observable<string>;
 

@@ -19,12 +19,20 @@ export class AuthActions {
     }
   }
 
-  loginStarted(email: string, password: string): Action {
+  loginCompleted(result: any): Action {
     return {
-      type: Names.LOGIN_STARTED,
-      payload: <Payloads.LoginStartedPayload>{
-        email,
-        password
+      type: Names.LOGIN_COMPLETED,
+      payload: <Payloads.LoginCompletedPayload>{
+        result
+      }
+    }
+  }
+
+  loginFailed(error: any): Action {
+    return {
+      type: Names.LOGIN_FAILED,
+      payload: <Payloads.LoginFailedPayload>{
+        error
       }
     }
   }

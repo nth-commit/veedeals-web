@@ -9,6 +9,7 @@ import { VeedealsApiModule } from '../../../_lib/veedeals-api/veedeals-api.modul
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LocationService } from './services/location.service';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -20,8 +21,8 @@ import { LocationService } from './services/location.service';
 
     VeedealsApiModule.forRoot('http://localhost:5000')
   ],
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent],
+  declarations: [NavbarComponent, ModalComponent],
+  exports: [NavbarComponent, ModalComponent],
   providers: [
     LocationService
   ]

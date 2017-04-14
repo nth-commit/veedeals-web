@@ -3,11 +3,10 @@ export interface LoginPayload {
     password: string;
 }
 
-export interface LoginStartedPayload {
-    email: string;
-    password: string;
-}
-
 export interface LoginCompletedPayload {
     result: {};
+}
+
+export interface LoginFailedPayload {
+    error: {};
 }

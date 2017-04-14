@@ -1,0 +1,17 @@
+<div class="app-login">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <md-input-container>
+        <input mdInput formControlName="email" placeholder="Email" />
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <md-input-container>
+        <input mdInput type="password" formControlName="password" placeholder="Password" />
+      </md-input-container>
+    </div>
+    <div class="form-group">
+      <button md-raised-button color="primary" (click)="login()">Login</button>
+    </div>
+  </form>
+</div>

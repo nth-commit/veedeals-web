@@ -19,12 +19,12 @@
             }
         }
 
-        button.location-select {
+        .location-select {
             margin-left: 30px;
+        }
 
-            &:not(:hover) {
-                background: rgba(0, 0, 0, 0);
-            }
+        .fill-space {
+            @include flex(1, 1, auto);
         }
     }
 }

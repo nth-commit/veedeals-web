@@ -2,6 +2,8 @@
   <md-toolbar color="primary">
     <a class="title" [routerLink]="'/'">Veedeals BETA</a>
     <button md-button [mdMenuTriggerFor]="menu" class="location-select">{{ selectedLocation$ | async }}</button>
+    <span class="fill-space"></span>
+    <button md-button *ngIf="!authState.email" (click)="onLoginClick.emit()">Login</button>
   </md-toolbar>
   <md-menu #menu="mdMenu" positionY="below">
     <button *ngFor="let location of locations$ | async" md-menu-item>{{ location }}</button>
