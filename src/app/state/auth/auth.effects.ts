@@ -3,12 +3,13 @@ import { Store, Action } from '@ngrx/store';
 import { Effect, Actions, toPayload } from '@ngrx/effects';
 import { Observable } from 'rxjs';
 
-import { LoginService } from '../../features/auth/services/login.service';
-
 import { AppState, AuthState } from '../../abstractions/state';
 import { AuthActions } from './auth.actions';
 import * as Names from './auth.actions.names'
 import * as Payloads from './auth.actions.payloads';
+
+import { LoginService } from '../../features/auth/services/login.service';
+import { ErrorActions } from '../error';
 
 @Injectable()
 export class AuthEffects {
@@ -18,6 +19,7 @@ export class AuthEffects {
     constructor(
         private store: Store<AppState>,
         private authActions: AuthActions,
+        private errorActions: ErrorActions, 
         private loginService: LoginService,
         private actions$: Actions
     )
@@ -28,8 +30,13 @@ export class AuthEffects {
     @Effect() login: Observable<Action> = this.actions$
         .ofType(Names.LOGIN)
         .map(toPayload)
-        .switchMap((p: Payloads.LoginPayload) => this.loginService
-            .login(p.email, p.password)
-            .map(r => this.authActions.loginCompleted(r))
-            .catch(e => Observable.of(this.authActions.loginFailed(e))));
+        .switchMap((p: Payloads.LoginPayload) => Observable.fromPromise(
+            this.loginService
+                .login(p.email, p.password)
+                .then(r => this.authActions.loginCompleted(p.email, r))
+                .catch(e => this.authActions.loginFailed(e))));
+
+    @Effect() loginFailed: Observable<Action> = this.actions$
+        .ofType(Names.LOGIN_FAILED)
+        .map((p: Payloads.LoginFailedPayload) => this.errorActions.newError(p.error))
 }

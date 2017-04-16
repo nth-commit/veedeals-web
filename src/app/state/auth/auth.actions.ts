@@ -19,10 +19,11 @@ export class AuthActions {
     }
   }
 
-  loginCompleted(result: any): Action {
+  loginCompleted(email: string, result: any): Action {
     return {
       type: Names.LOGIN_COMPLETED,
       payload: <Payloads.LoginCompletedPayload>{
+        email,
         result
       }
     }

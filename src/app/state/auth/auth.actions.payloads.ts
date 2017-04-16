@@ -4,6 +4,7 @@ export interface LoginPayload {
 }
 
 export interface LoginCompletedPayload {
+    email: string;
     result: {};
 }
 

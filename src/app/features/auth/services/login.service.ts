@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 
 export interface LoginResult {
@@ -8,10 +9,17 @@ export interface LoginResult {
 @Injectable()
 export class LoginService {
 
-  constructor() { }
+  constructor(
+    private http: Http
+  ) { }
 
-  login(email: string, password: string): Observable<LoginResult> {
-    debugger;
-    return Observable.of(<LoginResult>{ email });
+  login(email: string, password: string): Promise<Response> {
+    return this.http
+      .post('http://localhost:5000/auth', null, {
+        headers: new Headers({
+          'Authorization': `X-VEEDEALS-USERPASS ${email}:${password}`
+        }) 
+      })
+      .toPromise();
   }
 }
